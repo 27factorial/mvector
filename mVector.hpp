@@ -31,6 +31,7 @@ mVector::~mVector() {
 
 /********************************************
 * TODO:					    *
+* Probably a complete rewrite lmao          *
 * Make mVector scalable to 3 dimensions.    *
 * Add mathematical functions for vectors.   *
 * Add Matrices.                             *
