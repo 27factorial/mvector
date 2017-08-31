@@ -38,6 +38,7 @@ mVector::mVector(int num, ...) { // Using va_list with std::vector, we can add a
 
 mVector::~mVector() {
 	// the compiler will make a destructor.
+	// If you're porting this, this is just a C++ idiom. You don't need to add this most likely.
 }
 
 
