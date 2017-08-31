@@ -54,15 +54,6 @@ std::string mVector::giveDimensions() { //Messy code. I'll try to fix this up wh
 	return "[" + output.str() + "]";
 }
 
-
-int main() {
-
-	mVector vect(5, 1.0, 2.0, 3.0, 4.0, 5.0);
-	std::cout << vect.giveDimensions();
-
-	return 0;
-}
-
 /********************************************
 * TODO:
 / Make mVector scalable to 3 dimensions. (Scales to infinite dimensions.)
