@@ -30,12 +30,11 @@ mVector::~mVector() {
 }
 
 /********************************************
-* TODO:					    *
-* Probably a complete rewrite lmao          *
+* TODO:										*
 * Make mVector scalable to 3 dimensions.    *
 * Add mathematical functions for vectors.   *
 * Add Matrices.                             *
 * Add math for Matrices.                    *
-* Cross compatibility.			    *
+* Cross compatibility.						*
 * Get rid of the todo list.                 *
 *********************************************/
