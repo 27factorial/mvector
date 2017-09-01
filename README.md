@@ -10,7 +10,7 @@ There are a few functions built into the library. (These are WIP and not all of 
 ## Functions
 
 ### mVector (aka. the Constructor)
-Sets the values of vectorDimensions. NOTE: this function expects its inputs (except the first) to be of type double, if they are not, the behavior is undefined.  
+Initializes the vector `vectorDimensions`. Note that if the any input but the first is not of type double, the behavior is undefined.    
 Syntax:
 ```cpp
 mVector vect(<count of args>, <arg1>, <arg2>, <arg3>, ..., <argN>); 
@@ -25,6 +25,7 @@ This function produces no output.
 
 ### giveDimensions
 returns the dimensions of the given vector. Takes no arguments. (returns std::string type.)  
+
 Syntax:
 ```cpp
 vect.giveDimensions();
@@ -40,6 +41,7 @@ Output: `1, 2`
 
 ### addVector
 addVector is a function in the library that adds two vectors together. Note that it only works with vectors of equal dimensions/size.  
+
 Syntax:
 ```cpp
 vect.addVector(vect2);
