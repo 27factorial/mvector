@@ -21,10 +21,12 @@ public:
 	~mVector();
 
 	std::string giveDimensions();
+
+	mVector addVector(mVector x); // May combine with addScalar
 };
 
 
-mVector::mVector(int num, ...) { // Using va_list with std::vector, we can add a vector of infnite dimensions.
+mVector::mVector(int num, ...) { // Using va_list with std::vector, we can add a vector of infinite dimensions.
 	std::va_list args;
 
 	va_start(args, num);
@@ -38,7 +40,6 @@ mVector::mVector(int num, ...) { // Using va_list with std::vector, we can add a
 
 mVector::~mVector() {
 	// the compiler will make a destructor.
-	// If you're porting this, this is just a C++ idiom. You don't need to add this most likely.
 }
 
 
@@ -52,13 +53,39 @@ std::string mVector::giveDimensions() { //Messy code. I'll try to fix this up wh
 			output << vectorDimensions.at(item) << ", ";
 		}
 	}
-	return "[" + output.str() + "]";
+	return output.str();
 }
+
+mVector mVector::addVector(mVector vect) {
+	if (vect.vectorDimensions.size() > this->vectorDimensions.size() || vect.vectorDimensions.size() < this->vectorDimensions.size()) {
+	throw "mVector::vectorDimensions sizes are not equal!";
+	exit(-1);
+	}
+	else {
+		for (int i = 0; i < vect.vectorDimensions.size(); i++) {
+			vect.vectorDimensions.at(i) += this->vectorDimensions.at(i);
+		}
+		return vect;
+	}
+}
+
+/* for use in a cpp file
+int main() {
+
+	mVector vect(5, 1.0, 2.0, 3.0, 4.0, 5.0);
+	mVector vect2(5, 1.0, 1.0, 1.0, 1.0, 1.0);
+	mVector vect3 = vect.addVector(vect2);
+	std::cout << vect.giveDimensions() << std::endl;
+	std::cout << vect3.giveDimensions() << std::endl;
+
+	return 0;
+}
+*/
 
 /********************************************
 * TODO:
 / Make mVector scalable to 3 dimensions. (Scales to infinite dimensions.)
-* Add mathematical functions for vectors.   
+* Add mathematical functions for vectors.
 * Add Matrices.
 * Add math for Matrices.
 * Cross compatibility.
