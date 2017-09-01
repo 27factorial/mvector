@@ -7,6 +7,7 @@ mVector (math Vector) aims to implement vectors and matricesr to C++ source code
 ## What can I do with mVector?
 There are a few functions built into the library. (These are WIP and not all of them are available yet, sorry!) 
 
+## Functions
 
 ### mVector (aka. the Constructor)
 Sets the values of vectorDimensions. NOTE: this function expects its inputs (except the first) to be of type double, if they are not, the behavior is undefined.  
@@ -20,6 +21,7 @@ mVector vect(3, 45.5, 23.232, 12.2);
 ```
 This function produces no output.
 
+---
 
 ### giveDimensions
 returns the dimensions of the given vector. Takes no arguments. (returns std::string type.)  
@@ -35,6 +37,7 @@ std::cout << vect.giveDimensions();
 Output:
 `1, 2`
 
+---
 
 ### addVector
 addVector is a function in the library that adds two vectors together. Note that it only works with vectors of equal dimensions/size.  
