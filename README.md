@@ -51,7 +51,7 @@ mVector vect1(2, 1.0, 2.0);
 mVector vect2(2, 15.0, 21.0);
 mVector vect3 = vect1.addVector(vect2);
 
-std::cout << vect3.giveDimensions << std::endl;
+std::cout << vect3.giveDimensions() << std::endl;
 ```
 Output: `16, 23`
 
