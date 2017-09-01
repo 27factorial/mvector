@@ -13,7 +13,7 @@ There are a few functions built into the library. (These are WIP and not all of 
 Sets the values of vectorDimensions. NOTE: this function expects its inputs (except the first) to be of type double, if they are not, the behavior is undefined.  
 Syntax:
 ```cpp
-mVector vect(<count of args>, <arg1>, <arg2>, <arg3>, ...<argN>); 
+mVector vect(<count of args>, <arg1>, <arg2>, <arg3>, ..., <argN>); 
 ```
 Example:
 ```cpp
@@ -34,8 +34,7 @@ Example:
 mVector vect(2, 1.0, 2.0);
 std::cout << vect.giveDimensions();
 ```
-Output:
-`1, 2`
+Output: `1, 2`
 
 ---
 
@@ -54,7 +53,6 @@ mVector vect3 = vect1.addVector(vect2);
 
 std::cout << vect3.giveDimensions << std::endl;
 ```
-Output:  
-`16, 23`
+Output: `16, 23`
 
 
