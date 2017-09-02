@@ -56,3 +56,23 @@ mVector vect3 = vect1.addVector(vect2);
 std::cout << vect3.giveDimensions() << std::endl;
 ```
 Output: `16, 23`
+
+---
+
+### addScalar
+addScalar has the same function as addVector, but it adds a scalar (regular number) to a vector. (return type is `mVector::mVector`.)  
+
+Syntax:
+```cpp
+vect.addScalar(vect2, double);
+```
+
+Example:
+```cpp
+mVector vect1(2, 1.0, 2.0);
+mVector vect2 = vect1.addScalar(vect1, 2.0);
+
+std::cout << vect2.giveDimensions() << std::endl;
+```
+Output: `3, 4`
+
