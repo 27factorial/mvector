@@ -24,7 +24,7 @@ This function produces no output.
 ---
 
 ### giveDimensions
-returns the dimensions of the given vector. Takes no arguments. (returns std::string type.)  
+returns the dimensions of the given vector. Takes no arguments. (returns type is `std::string`.)  
 
 Syntax:
 ```cpp
@@ -40,7 +40,7 @@ Output: `1, 2`
 ---
 
 ### addVector
-addVector is a function in the library that adds two vectors together. Note that it only works with vectors of equal dimensions/size.  
+addVector is a function in the library that adds two vectors together. Note that it only works with vectors of equal dimensions/size. (return type is `mVector::mVector`.)
 
 Syntax:
 ```cpp
