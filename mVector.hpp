@@ -1,6 +1,6 @@
-// STD::VECTOR AND MVECTOR ARE DIFFERENT THINGS!
-//mVector is used for mathematical vectors. (Think linear algebra / calculus.)
-//std::vector is (basically) an array that can be variable in size.
+	// STD::VECTOR AND MVECTOR ARE DIFFERENT THINGS!
+	//mVector is used for mathematical vectors. (Think linear algebra / calculus.)
+	//std::vector is (basically) an array that can be variable in size.
 
 #include "stdafx.h" // VS
 #include <cstdarg>
@@ -10,19 +10,19 @@
 #include <vector>
 
 
-class mVector {
-private:
+	class mVector {
+	private:
 
-	std::vector <double> vectorDimensions; // Using std::vector for making mathematical vectors?!?!? It allows us to make a vector of infnite dimensions. Why? Because I can.
+		std::vector <double> vectorDimensions; // Using std::vector for making mathematical vectors?!?!? It allows us to make a vector of infnite dimensions. Why? Because I can.
 
-public:
-	mVector(int, ...);
+	public:
+		mVector(int, ...);
 
-	~mVector();
+		~mVector();
 
-	std::string giveDimensions();
+		std::string giveDimensions();
 
-	mVector addVector(mVector x); // May combine with addScalar
+		mVector addVector(mVector x); // May combine with addScalar
 };
 
 
@@ -58,8 +58,9 @@ std::string mVector::giveDimensions() { //Messy code. I'll try to fix this up wh
 
 mVector mVector::addVector(mVector vect) {
 	if (vect.vectorDimensions.size() > this->vectorDimensions.size() || vect.vectorDimensions.size() < this->vectorDimensions.size()) {
-	throw "mVector::vectorDimensions sizes are not equal!";
-	exit(-1);
+		std::string error = "mVectorSizeException";
+		std::cerr << "Error! " << error << std::endl;
+		throw error;  // PLEASE don't forget to catch this exception.
 	}
 	else {
 		for (int i = 0; i < vect.vectorDimensions.size(); i++) {
@@ -69,18 +70,16 @@ mVector mVector::addVector(mVector vect) {
 	}
 }
 
-/* for use in a cpp file
+/* for testing
 int main() {
-
 	mVector vect(5, 1.0, 2.0, 3.0, 4.0, 5.0);
-	mVector vect2(5, 1.0, 1.0, 1.0, 1.0, 1.0);
-	mVector vect3 = vect.addVector(vect2);
-	std::cout << vect.giveDimensions() << std::endl;
-	std::cout << vect3.giveDimensions() << std::endl;
+	mVector vect2(4, 1.0, 1.0, 1.0, 1.0);
+	auto vect3 = vect.addVector(vect2);
 
 	return 0;
 }
 */
+
 
 /********************************************
 * TODO:
