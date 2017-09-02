@@ -56,5 +56,3 @@ mVector vect3 = vect1.addVector(vect2);
 std::cout << vect3.giveDimensions() << std::endl;
 ```
 Output: `16, 23`
-
-test
