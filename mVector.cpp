@@ -1,6 +1,6 @@
-	// STD::VECTOR AND MVECTOR ARE DIFFERENT THINGS!
-	//mVector is used for mathematical vectors. (Think linear algebra / calculus.)
-	//std::vector is (basically) an array that can be variable in size.
+// STD::VECTOR AND MVECTOR ARE DIFFERENT THINGS!
+//mVector is used for mathematical vectors. (Think linear algebra / calculus.)
+//std::vector is (basically) an array that can be variable in size.
 
 #include "stdafx.h" // VS
 #include <cstdarg>
@@ -10,27 +10,29 @@
 #include <vector>
 
 
-	class mVector {
-	private:
+class mVector {
+private:
 
-		std::vector <double> vectorDimensions; // Using std::vector for making mathematical vectors?!?!? It allows us to make a vector of infnite dimensions. Why? Because I can.
+	std::vector <double> vectorDimensions; // Using std::vector for making mathematical vectors?!?!? It allows us to make a vector of infnite dimensions. Why? Because I can.
 
-	public:
-		mVector(int, ...);
+public:
+	mVector(int, ...);
 
-		~mVector();
+	~mVector();
 
-		std::string giveDimensions();
+	std::string giveDimensions();
 
-		mVector addVector(mVector x); // May combine with addScalar
+	mVector addVector(mVector);
+
+	mVector addScalar(mVector, double);
 };
 
 
-mVector::mVector(int num, ...) { // Using va_list with std::vector, we can add a vector of infinite dimensions.
+mVector::mVector(int argc, ...) { // Using va_list with std::vector, we can add a vector of infinite dimensions.
 	std::va_list args;
 
-	va_start(args, num);
-	for (int x = 0; x < num; x++) {
+	va_start(args, argc);
+	for (int x = 0; x < argc; x++) {
 		vectorDimensions.insert(vectorDimensions.end(), va_arg(args, double)); // How axes work: x = index 0, y = index 1, z = index 2, etc.
 	}
 	va_end(args);
@@ -60,7 +62,8 @@ mVector mVector::addVector(mVector vect) {
 	if (vect.vectorDimensions.size() > this->vectorDimensions.size() || vect.vectorDimensions.size() < this->vectorDimensions.size()) {
 		std::string error = "mVectorSizeException";
 		std::cerr << "Error! " << error << std::endl;
-		throw error;  // PLEASE don't forget to catch this exception.
+		throw error; // PLEASE don't forget to catch this exception, just put this in a try block.
+		exit(-1);
 	}
 	else {
 		for (int i = 0; i < vect.vectorDimensions.size(); i++) {
@@ -70,16 +73,17 @@ mVector mVector::addVector(mVector vect) {
 	}
 }
 
-/* for testing
-int main() {
-	mVector vect(5, 1.0, 2.0, 3.0, 4.0, 5.0);
-	mVector vect2(4, 1.0, 1.0, 1.0, 1.0);
-	auto vect3 = vect.addVector(vect2);
-
-	return 0;
+mVector mVector::addScalar(mVector vect, double x) {
+	for (int i = 0; i < vect.vectorDimensions.size(); i++) {
+		vect.vectorDimensions.at(i) += x;
+	}
+	return vect;
 }
-*/
 
+/* testing
+int main() {
+
+} */
 
 /********************************************
 * TODO:
