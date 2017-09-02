@@ -60,7 +60,7 @@ Output: `16, 23`
 ---
 
 ### addScalar
-addScalar has the same function as addVector, but it adds a scalar (regular number) to a vector. (return type is `mVector::mVector`.)  
+addScalar has the same function as addVector, but it adds a scalar (a regular number) to a vector. (return type is `mVector::mVector`.)  
 
 Syntax:
 ```cpp
