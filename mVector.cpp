@@ -25,6 +25,8 @@ public:
 	mVector addVector(mVector);
 
 	mVector addScalar(mVector, double);
+	// If you decide to actually look at this, I'm gonna combine addVector and addScalar into one function.
+	// The new function will be called add(), and be made with function overloading.
 };
 
 
