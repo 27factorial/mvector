@@ -22,9 +22,9 @@ public:
 
 	std::string giveDimensions();
 
-	mVector add(mVector);
+	mVector add(mVector); // Adding vectors to vectors
 
-	mVector add(double);
+	mVector add(double); // Adding scalars to vectors
 };
 
 
