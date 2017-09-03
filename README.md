@@ -40,7 +40,7 @@ Output: `1, 2`
 ---
 
 ### add
-Adds either a vector or a scalar to the vector (return type is `mVector::mVector`.
+Adds either a vector or a scalar to the vector (return type is `mVector::mVector`.)
 
 Syntax (Vectors):
 ```cpp
