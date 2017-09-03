@@ -39,40 +39,29 @@ Output: `1, 2`
 
 ---
 
-### addVector
-addVector is a function in the library that adds two vectors together. Note that it only works with vectors of equal dimensions/size. (return type is `mVector::mVector`.)
+### add
+Adds either a vector or a scalar to the vector (return type is `mVector::mVector`.
 
-Syntax:
+Syntax (Vectors):
 ```cpp
-vect.addVector(vect2);
+vect1.add(vect2);
 ```
-
-Example:
+Syntax (Scalars):
+```cpp
+vect.add(<number>);
+```
+Example (Vectors):
 ```cpp
 mVector vect1(2, 1.0, 2.0);
-mVector vect2(2, 15.0, 21.0);
-mVector vect3 = vect1.addVector(vect2);
-
-std::cout << vect3.giveDimensions() << std::endl;
-```
-Output: `16, 23`
-
----
-
-### addScalar
-addScalar has the same function as addVector, but it adds a scalar (a regular number) to a vector. (return type is `mVector::mVector`.)  
-
-Syntax:
-```cpp
-vect.addScalar(vect2, double);
-```
-
-Example:
-```cpp
-mVector vect1(2, 1.0, 2.0);
-mVector vect2 = vect1.addScalar(vect1, 2.0);
-
+mVector vect2 = vect1.add(vect1);
 std::cout << vect2.giveDimensions() << std::endl;
 ```
-Output: `3, 4`
+Output: `2, 4`
 
+Example (Scalars):
+```cpp
+mVector vect1(2, 1.0, 2.0);
+mVector vect2 = vect1.add(5);
+std::cout << vect2.giveDimensions() << std::endl;
+```
+Output: `6, 7`
