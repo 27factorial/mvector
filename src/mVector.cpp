@@ -13,7 +13,7 @@
 class mVector {
 private:
 
-	std::vector <double> vectorDimensions; // Using std::vector for making mathematical vectors?!?!? It allows us to make a vector of infnite dimensions. Why? Because I can.
+	std::vector <double> vectorDimensions; // Using std::vector for making mathematical vectors?!?!? It allows us to make a vector of infinite dimensions. Why? Because I can.
 
 public:
 	mVector(int, ...);
