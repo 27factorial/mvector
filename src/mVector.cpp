@@ -13,18 +13,20 @@
 class mVector {
 private:
 
-	std::vector <double> vectorDimensions; // Using std::vector for making mathematical vectors?!?!? It allows us to make a vector of infinite dimensions. Why? Because I can.
+	std::vector <double> vectorDimensions; // Using std::vector for making mathematical vectors?!?!? It allows us to make a vector of infnite dimensions. Why? Because I can.
 
 public:
 	mVector(int, ...);
 
 	~mVector();
 
-	std::string giveDimensions();
+	std::string getDimensions();
 
 	mVector add(mVector); // Adding vectors to vectors
 
 	mVector add(double); // Adding scalars to vectors
+
+	double dotProd(mVector vect);
 };
 
 
@@ -45,7 +47,7 @@ mVector::~mVector() {
 }
 
 
-std::string mVector::giveDimensions() { //Messy code. I'll try to fix this up when I get a chance.
+std::string mVector::getDimensions() { //Messy code. I'll try to fix this up when I get a chance.
 	std::stringstream output;
 	for (unsigned item = 0; item < vectorDimensions.size(); item++) {
 		if (item == vectorDimensions.size() - 1) {
@@ -80,14 +82,29 @@ mVector mVector::add(double x) {
 	return *this;
 }
 
+double mVector::dotProd(mVector vect) {
+	if (this->vectorDimensions.size() != vect.vectorDimensions.size()) {
+		std::string error = "mVectorSizeException";
+		std::cerr << "Error! " << error << std::endl;
+		throw error; //Again, please don't forget to catch this exception.
+		exit(-2);
+	}
+	else {
+		double num = 0;
+		for (unsigned i = 0; i < this->vectorDimensions.size(); i++) {
+			this->vectorDimensions.at(i) *= vect.vectorDimensions.at(i);
+			num += this->vectorDimensions.at(i);
+		}
+		return num;
+	}
+}
+
 
 int main() {
 	mVector vect1(2, 1.0, 2.0);
 	mVector vect2(2, 1.0, 2.0);
-	vect2 = vect1.add(vect2);
-	std::cout << vect2.giveDimensions() << std::endl;
-	vect2 = vect2.add(1);
-	std::cout << vect2.giveDimensions() << std::endl;
+	double num = vect1.dotProd(vect2);
+	std::cout << num << std::endl;
 }
 
 /********************************************
@@ -101,26 +118,25 @@ int main() {
 *********************************************/
 
 /* Reference code.
-
-mVector mVector::addVector(mVector vect) {
-	if (vect.vectorDimensions.size() > this->vectorDimensions.size() || vect.vectorDimensions.size() < this->vectorDimensions.size()) { // LOL WHY
-		std::string error = "mVectorSizeException";
-		std::cerr << "Error! " << error << std::endl;
-		throw error; // PLEASE don't forget to catch this exception, just put this in a try block.
-		exit(-1);
-	}
-	else {
-		for (int i = 0; i < vect.vectorDimensions.size(); i++) {
-			vect.vectorDimensions.at(i) += this->vectorDimensions.at(i);
+	mVector mVector::addVector(mVector vect) {
+		if (vect.vectorDimensions.size() > this->vectorDimensions.size() || vect.vectorDimensions.size() < this->vectorDimensions.size()) { // LOL WHY
+			std::string error = "mVectorSizeException";
+			std::cerr << "Error! " << error << std::endl;
+			throw error; // PLEASE don't forget to catch this exception, just put this in a try block.
+			exit(-1);
 		}
-	return vect;
+		else {
+			for (int i = 0; i < vect.vectorDimensions.size(); i++) {
+				vect.vectorDimensions.at(i) += this->vectorDimensions.at(i);
+			}
+			return vect;
+		}
 	}
-}
 
-mVector mVector::addScalar(mVector vect, double x) {
-	for (int i = 0; i < vect.vectorDimensions.size(); i++) {
-		vect.vectorDimensions.at(i) += x;
+	mVector mVector::addScalar(mVector vect, double x) {
+		for (int i = 0; i < vect.vectorDimensions.size(); i++) {
+			vect.vectorDimensions.at(i) += x;
 	}
-return vect;
+	return vect;
 }
 */
