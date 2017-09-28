@@ -49,12 +49,12 @@ mVector::~mVector() {
 
 std::string mVector::getDimensions() { //Messy code. I'll try to fix this up when I get a chance.
 	std::stringstream output;
-	for (unsigned item = 0; item < vectorDimensions.size(); item++) {
-		if (item == vectorDimensions.size() - 1) {
-			output << vectorDimensions.at(item);
+	for (unsigned i = 0; i < vectorDimensions.size(); i++) {
+		if (i == vectorDimensions.size() - 1) {
+			output << vectorDimensions.at(i);
 		}
 		else {
-			output << vectorDimensions.at(item) << ", ";
+			output << vectorDimensions.at(i) << ", ";
 		}
 	}
 	return output.str();
