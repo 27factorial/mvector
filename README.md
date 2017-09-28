@@ -23,17 +23,17 @@ This function produces no output.
 
 ---
 
-### giveDimensions
+### getDimensions
 returns the dimensions of the given vector. Takes no arguments. (return type is `std::string`.)  
 
 Syntax:
 ```cpp
-vect.giveDimensions();
+vect.getDimensions();
 ```
 Example:
 ```cpp
 mVector vect(2, 1.0, 2.0);
-std::cout << vect.giveDimensions();
+std::cout << vect.getDimensions();
 ```
 Output: `1, 2`
 
@@ -54,7 +54,7 @@ Example (Vectors):
 ```cpp
 mVector vect1(2, 1.0, 2.0);
 mVector vect2 = vect1.add(vect1);
-std::cout << vect2.giveDimensions() << std::endl;
+std::cout << vect2.getDimensions() << std::endl;
 ```
 Output: `2, 4`
 
@@ -62,6 +62,6 @@ Example (Scalars):
 ```cpp
 mVector vect1(2, 1.0, 2.0);
 mVector vect2 = vect1.add(5);
-std::cout << vect2.giveDimensions() << std::endl;
+std::cout << vect2.getDimensions() << std::endl;
 ```
 Output: `6, 7`
