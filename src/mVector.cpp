@@ -107,36 +107,10 @@ int main() {
 	std::cout << num << std::endl;
 }
 
-/********************************************
-* TODO:
-/ Make mVector scalable to 3 dimensions. (Scales to infinite dimensions.)
-* Add mathematical functions for vectors.
-* Add Matrices.
-* Add math for Matrices.
-* Cross compatibility.
-* Get rid of the todo list.
-*********************************************/
-
-/* Reference code.
-	mVector mVector::addVector(mVector vect) {
-		if (vect.vectorDimensions.size() > this->vectorDimensions.size() || vect.vectorDimensions.size() < this->vectorDimensions.size()) { // LOL WHY
-			std::string error = "mVectorSizeException";
-			std::cerr << "Error! " << error << std::endl;
-			throw error; // PLEASE don't forget to catch this exception, just put this in a try block.
-			exit(-1);
-		}
-		else {
-			for (int i = 0; i < vect.vectorDimensions.size(); i++) {
-				vect.vectorDimensions.at(i) += this->vectorDimensions.at(i);
-			}
-			return vect;
-		}
-	}
-
-	mVector mVector::addScalar(mVector vect, double x) {
-		for (int i = 0; i < vect.vectorDimensions.size(); i++) {
-			vect.vectorDimensions.at(i) += x;
-	}
-	return vect;
-}
-*/
+/* Will be completely rewriting this for the following reasons:
+ * 1. The code is sloppy and not well written. I want to improve on this.
+ * 2. My consistency is horrible; I want to work on making my commenting more helpful and consistent, as well as having self explanatory code.
+ * 3. I can't even recall why I've done half of the things I've done. I wrote this when I was new.
+ * 4. There are compiler warnings that I should have addressed long ago.
+ * 5. I have nothing better to do.
+ */
